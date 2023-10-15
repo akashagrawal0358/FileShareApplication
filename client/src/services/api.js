@@ -11,8 +11,7 @@ const uploadFile = async (data) => {
     } catch (error) {
         console.error("Error Occurred ", error.message);
     }
-
-
 };
+
 
 export default uploadFile;
