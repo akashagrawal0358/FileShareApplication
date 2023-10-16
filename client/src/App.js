@@ -17,6 +17,10 @@ function App() {
   console.log(file);
 
 
+//  Helps in appending the link of uploaded file
+ const[link , setLink] = useState('');
+
+
   useEffect(() => {
     const getData = async () => {
 
@@ -27,6 +31,7 @@ function App() {
       
       //  'uploadFile func'  calls and post data 
       let response = await uploadFile(data) ; 
+        setLink(response.path);
       }
     }
     getData() ;
@@ -57,6 +62,9 @@ function App() {
           onChange={(e) => setFile(e.target.files[0])}
         />
 
+
+        {/* It shows the link of uploaded file just below upload button */}
+        <a href={link} target='_blank'> {link} </a>
       </div>
     </div>
   );
